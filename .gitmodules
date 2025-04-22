@@ -2,3 +2,7 @@
 	path = anon-kode
 	url = https://github.com/fankaidev/anon-kode
 	branch = study
+[submodule "aider"]
+	path = aider
+	url = https://github.com/fankaidev/aider
+	branch = test
