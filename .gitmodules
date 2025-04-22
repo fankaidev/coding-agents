@@ -6,3 +6,7 @@
 	path = aider
 	url = https://github.com/fankaidev/aider
 	branch = test
+[submodule "cline"]
+	path = cline
+	url = https://github.com/fankaidev/cline
+	branch = cline-test
