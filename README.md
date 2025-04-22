@@ -19,15 +19,24 @@
 * 其他特性：评估agent的其他独特功能或设计理念
 
 
+### 为项目创建和编辑分析文档的最佳实践
+* 使用完整的语言来描述各个维度的特性，避免使用高度概括性的描述
+* 关注核心流程，周边功能适当精简
+* 对于关键的流程或者特性，适当添加代码实例或者文件链接
+* 提及代码文件的时候，要使用Markdown链接，比如 [base_coder.py](aider/aider/coders/base_coder.py)
+* 项目中的术语不要翻译
+* 尽量使用无序列表，便于后续编辑
+
+
 ## 项目分析
 
 * [aider](aider.md)
-* [cline](https://github.com/fankaidev/cline)
+* [cline](cline.md)
 * [Roo-Code](https://github.com/RooVetGit/Roo-Code)
-* [codex](https://github.com/openai/codex)
-* [anon-kode](https://github.com/fankaidev/anon-kode)
-* [OpenHands](https://github.com/fankaidev/OpenHands)
-* [auto-coder](https://github.com/fankaidev/auto-coder)
+* [codex](codex.md)
+* [anon-kode](anon-kode.md)
+* [OpenHands](OpenHands.md)
+* [auto-coder](auto-coder.md)
 
 ## 项目比较
 
@@ -38,80 +47,134 @@
       <th>aider</th>
       <th>cline</th>
       <th>OpenHands</th>
+      <th>codex</th>
+      <th>anon-kode</th>
+      <th>auto-coder</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>实现方式</strong></td>
+      <td>实现方式</td>
       <td>基于Python的命令行工具，专注于结对编程体验</td>
       <td>作为VSCode扩展实现，深度集成IDE环境</td>
       <td>独立平台，同时支持Web界面和多种运行模式</td>
+      <td>基于TypeScript的终端CLI工具，使用React/Ink构建丰富命令行界面</td>
+      <td>轻量级终端AI编码助手，支持任何OpenAI兼容API的模型</td>
+      <td>基于Python的多模式AI编程助手，由Byzer-LLM提供支持</td>
     </tr>
     <tr>
-      <td><strong>交互体验</strong></td>
+      <td>交互体验</td>
       <td>通过命令行进行交互，使用"/命令"系统控制工作流，支持语音输入和外部编辑器监视</td>
       <td>在VSCode中提供图形化界面，支持图像上传、差异视图和文件编辑，实现无缝IDE体验</td>
       <td>提供多种交互模式，包括Web界面、CLI和无头模式，支持GitHub Action自动化和API集成</td>
+      <td>命令行REPL环境，支持多种批准模式，提供结构化差异视图和审查机制</td>
+      <td>命令行聊天界面，使用"/命令"控制系统，支持细粒度权限控制和MCP集成</td>
+      <td>支持聊天、命令和服务多种交互模式，提供插件系统和丰富的命令补全</td>
     </tr>
     <tr>
-      <td><strong>上下文管理</strong></td>
+      <td>上下文管理</td>
       <td>
-        <strong>代码知识图谱</strong>：构建Repository Map，使用networkx分析代码依赖关系<br>
-        <strong>智能重要性排序</strong>：应用PageRank算法识别核心组件，优先处理关键代码<br>
-        <strong>多级缓存系统</strong>：维护标签缓存、树缓存和映射缓存，基于文件修改时间更新<br>
-        <strong>Git记忆机制</strong>：每次修改自动提交，提交信息包含修改意图，形成可检索的知识库
+        代码知识图谱：构建Repository Map，使用networkx分析代码依赖关系<br>
+        智能重要性排序：应用PageRank算法识别核心组件，优先处理关键代码<br>
+        多级缓存系统：维护标签缓存、树缓存和映射缓存，基于文件修改时间更新<br>
+        Git记忆机制：每次修改自动提交，提交信息包含修改意图，形成可检索的知识库
       </td>
       <td>
-        <strong>语法结构分析</strong>：使用tree-sitter解析AST，深入理解代码结构和语义<br>
-        <strong>检查点系统</strong>：在关键步骤创建工作区快照，支持比较和回溯<br>
-        <strong>文件系统索引</strong>：建立工作区文件索引，识别关联文件和依赖<br>
-        <strong>上下文压缩</strong>：智能截断和组织上下文，优化token使用效率
+        语法结构分析：使用tree-sitter解析AST，深入理解代码结构和语义<br>
+        检查点系统：在关键步骤创建工作区快照，支持比较和回溯<br>
+        文件系统索引：建立工作区文件索引，识别关联文件和依赖<br>
+        上下文压缩：智能截断和组织上下文，优化token使用效率
       </td>
       <td>
-        <strong>文件系统映射</strong>：构建结构化项目表示，识别关键配置和依赖<br>
-        <strong>微代理知识体系</strong>：根据关键词触发特定领域知识，动态加载相关指南<br>
-        <strong>任务记忆持久化</strong>：通过memory模块维护短期和长期记忆，在相关任务间传递知识<br>
-        <strong>项目特定化</strong>：通过.openhands目录加载仓库特定指南，应用团队约定
-      </td>
-    </tr>
-    <tr>
-      <td><strong>工具集成</strong></td>
-      <td>
-        <strong>版本控制</strong>：自动Git提交、差异查看和撤销<br>
-        <strong>代码质量</strong>：运行linter和测试，提供修复<br>
-        <strong>系统工具</strong>：执行shell命令，捕获输出<br>
-        <strong>多媒体</strong>：处理图像和PDF文件作为设计参考
+        文件系统映射：构建结构化项目表示，识别关键配置和依赖<br>
+        微代理知识体系：根据关键词触发特定领域知识，动态加载相关指南<br>
+        任务记忆持久化：通过memory模块维护短期和长期记忆，在相关任务间传递知识<br>
+        项目特定化：通过.openhands目录加载仓库特定指南，应用团队约定
       </td>
       <td>
-        <strong>编辑器工具</strong>：精确文件编辑、代码补全<br>
-        <strong>终端集成</strong>：执行命令并监视输出流<br>
-        <strong>浏览器自动化</strong>：点击、输入、截图、读取控制台<br>
-        <strong>诊断整合</strong>：自动检测并修复编译/lint错误
+        项目文档集成：自动加载项目的codex.md文件作为上下文<br>
+        多级配置管理：支持全局和项目级设置<br>
+        沙箱执行环境：安全隔离的命令执行<br>
+        Git集成：自动检测仓库状态，提供变更安全网
       </td>
       <td>
-        <strong>沙箱执行</strong>：在Docker环境中安全运行代码和命令<br>
-        <strong>网络工具</strong>：通过browsergym进行浏览器自动化<br>
-        <strong>版本控制</strong>：管理Git仓库、分支、PR和issue<br>
-        <strong>开发工具</strong>：代码linting、测试运行、依赖管理
+        会话管理：完整记录对话历史和工具执行结果<br>
+        权限上下文：项目级别权限配置和授权记忆<br>
+        命令安全分析：自动识别安全和危险命令<br>
+        持久化记忆：跨会话保存和恢复交互状态
+      </td>
+      <td>
+        检索增强生成：支持向量和文本混合搜索<br>
+        多层级记忆系统：短期、中期和长期记忆管理<br>
+        项目知识图谱：自动分析项目结构和依赖<br>
+        事件驱动通信：基于事件的组件间协作
       </td>
     </tr>
     <tr>
-      <td><strong>安全机制</strong></td>
+      <td>工具集成</td>
+      <td>
+        版本控制：自动Git提交、差异查看和撤销<br>
+        代码质量：运行linter和测试，提供修复<br>
+        系统工具：执行shell命令，捕获输出<br>
+        多媒体：处理图像和PDF文件作为设计参考
+      </td>
+      <td>
+        编辑器工具：精确文件编辑、代码补全<br>
+        终端集成：执行命令并监视输出流<br>
+        浏览器自动化：点击、输入、截图、读取控制台<br>
+        诊断整合：自动检测并修复编译/lint错误
+      </td>
+      <td>
+        沙箱执行：在Docker环境中安全运行代码和命令<br>
+        网络工具：通过browsergym进行浏览器自动化<br>
+        版本控制：管理Git仓库、分支、PR和issue<br>
+        开发工具：代码linting、测试运行、依赖管理
+      </td>
+      <td>
+        文件操作：安全的文件读写和修改<br>
+        Shell执行：在平台特定沙箱中运行命令<br>
+        Git集成：版本控制和变更管理<br>
+        多媒体处理：支持图像输入和视觉理解
+      </td>
+      <td>
+        文件工具：读取、编辑、创建和搜索文件<br>
+        终端工具：安全的命令执行和输出捕获<br>
+        记忆工具：持久化信息存储和检索<br>
+        MCP工具：支持Model Context Protocol互操作
+      </td>
+      <td>
+        代码生成：智能补全和重构<br>
+        索引搜索：基于语义和文本的代码检索<br>
+        版本控制：Git操作和变更管理<br>
+        插件系统：可扩展的工具和命令集
+      </td>
+    </tr>
+    <tr>
+      <td>安全机制</td>
       <td>实现文件访问控制和代码路径验证，支持只读模式查看敏感文件，使用Git安全检查防止意外覆盖</td>
-      <td>采用"人在循环"设计，所有操作需用户确认，提供代码审核机制和检查点回滚功能</td>
+      <td>采用"Human-in-the-loop"设计，所有操作需用户确认，提供代码审核机制和检查点回滚功能</td>
       <td>使用Docker沙箱隔离执行环境，实现细粒度访问控制，安全管理API密钥，严格验证用户输入</td>
+      <td>多级批准模式系统(suggest/auto-edit/full-auto)，OS级沙箱隔离(macOS Seatbelt/Linux Docker)，网络访问控制</td>
+      <td>细粒度权限系统，命令级别授权控制，安全命令自动识别，工作目录隔离，无遥测数据收集</td>
+      <td>通过.autocoderignore配置排除敏感文件，模型过滤机制防止信息泄露，命令执行安全和版本控制安全网</td>
     </tr>
     <tr>
-      <td><strong>扩展能力</strong></td>
+      <td>扩展能力</td>
       <td>通过插件式设计和可扩展编辑器框架支持功能扩展，可添加新的编辑策略</td>
       <td>利用Model Context Protocol (MCP)创建自定义工具，支持多语言开发，提供本地化界面</td>
       <td>基于微代理架构实现领域专用知识和工作流扩展，支持多种部署方式，可集成到CI/CD流程</td>
+      <td>模型提供商系统支持多种LLM，沙箱执行环境可扩展到不同平台，灵活的配置系统</td>
+      <td>模块化工具系统，命令扩展机制，MCP集成能力，提供商抽象支持多种模型</td>
+      <td>插件系统，事件驱动架构，自定义代理扩展，YAML配置系统，RAG存储后端扩展</td>
     </tr>
     <tr>
-      <td><strong>特色功能</strong></td>
+      <td>特色功能</td>
       <td>架构师模式支持两个模型协作（设计与实现分离），丰富的命令系统（40+命令），智能历史摘要</td>
       <td>浏览器自动化支持端到端测试，检查点系统允许比较和恢复工作区，@提及语法快速添加上下文</td>
       <td>微代理系统分为知识型、任务型和仓库型，完整的评估框架，支持多种交互模式满足不同场景需求</td>
+      <td>终端优先设计，网络隔离沙箱执行，跨平台支持，CI/CD友好的非交互模式</td>
+      <td>细粒度权限控制，命令系统，MCP服务器支持，跨平台终端UI，本地化能力</td>
+      <td>多语言支持，声音输入功能，设计与执行分离，自动学习能力，多代理协作系统</td>
     </tr>
   </tbody>
 </table>
