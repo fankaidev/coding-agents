@@ -10,6 +10,7 @@
 * [codex](https://github.com/openai/codex)
 * [anon-kode](https://github.com/fankaidev/anon-kode)
 * [OpenHands](https://github.com/fankaidev/OpenHands)
+* [auto-coder](https://github.com/fankaidev/auto-coder)
 
 
 ## 如何评估一个coding agent

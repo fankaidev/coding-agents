@@ -20,3 +20,7 @@
 	path = anon-kode
 	url = https://github.com/fankaidev/anon-kode
 	branch = study
+[submodule "auto-coder"]
+	path = auto-coder
+	url = git@github.com:fankaidev/auto-coder.git
+	branch = study
