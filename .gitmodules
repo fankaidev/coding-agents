@@ -10,3 +10,6 @@
 	path = cline
 	url = https://github.com/fankaidev/cline
 	branch = cline-test
+[submodule "Roo-Code"]
+	path = Roo-Code
+	url = git@github.com:RooVetGit/Roo-Code.git
