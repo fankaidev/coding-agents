@@ -1,6 +1,7 @@
 # aider 项目分析
-- [项目地址](https://github.com/fankaidev/aider)
 - 更新时间: 2025-04-22
+- [项目地址](https://github.com/fankaidev/aider)
+- [langfuse 例子](https://us.cloud.langfuse.com/project/clypdnpot000t99b64wo88muz/traces/aider-2025-04-08-13075e14?timestamp=2025-04-08T09:12:25.748Z&display=details)
 
 ## 项目结构和框架
 
@@ -196,9 +197,6 @@ aider在模型使用上提供灵活且高效的策略：
 
 - **模型能力自适应**：根据模型能力自动选择最合适的编辑格式，如强大模型使用diff编辑，而较弱模型使用整文件替换。
 
-- **架构师模式**：通过[architect_coder.py](aider/aider/coders/architect_coder.py)实现两个模型协作（架构师和编码员），一个负责设计，另一个负责实现
-
-- **弱模型回退**：提供适用于各种计算资源的模型选择，包括支持本地模型运行的能力。
 
 ## 安全策略
 
@@ -263,3 +261,5 @@ aider具备强大的自我诊断和问题修复能力：
 aider还拥有一些独特的功能：
 
 - **多种交互模式**：提供`/code`、`/ask`、`/architect`、`/context`等多种工作模式，适应不同场景。
+
+- **架构师模式**：通过[architect_coder.py](aider/aider/coders/architect_coder.py)实现两个模型协作（架构师和编码员），一个负责设计，另一个负责实现
